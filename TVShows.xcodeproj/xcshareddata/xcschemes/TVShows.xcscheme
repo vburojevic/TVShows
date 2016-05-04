@@ -7,51 +7,52 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForAnalyzing = "YES"
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
-            buildForArchiving = "YES">
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B717B61E2E5E6B73A2B28DA0'
-               BlueprintName = 'TVShows'
-               ReferencedContainer = 'container:TVShows.xcodeproj'
-               BuildableName = 'TVShows.app'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B717B61E2E5E6B73A2B28DA0"
+               BuildableName = "TVShows.app"
+               BlueprintName = "TVShows"
+               ReferencedContainer = "container:TVShows.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
-      <AdditionalOptions>
-      </AdditionalOptions>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C70F94CC51DE3E93D323087E'
-               BlueprintName = 'TVShowsUnitTests'
-               ReferencedContainer = 'container:TVShows.xcodeproj'
-               BuildableName = 'TVShowsUnitTests.bundle'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C70F94CC51DE3E93D323087E"
+               BuildableName = "TVShowsUnitTests.xctest"
+               BlueprintName = "TVShowsUnitTests"
+               ReferencedContainer = "container:TVShows.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
-            BuildableIdentifier = 'primary'
-            BlueprintIdentifier = 'B717B61E2E5E6B73A2B28DA0'
-            BlueprintName = 'TVShows'
-            ReferencedContainer = 'container:TVShows.xcodeproj'
-            BuildableName = 'TVShows.app'>
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B717B61E2E5E6B73A2B28DA0"
+            BuildableName = "TVShows.app"
+            BlueprintName = "TVShows"
+            ReferencedContainer = "container:TVShows.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -59,34 +60,34 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      buildConfiguration = "Debug"
       allowLocationSimulation = "YES">
-      <AdditionalOptions>
-      </AdditionalOptions>
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
-            BuildableIdentifier = 'primary'
-            BlueprintIdentifier = 'B717B61E2E5E6B73A2B28DA0'
-            BlueprintName = 'TVShows'
-            ReferencedContainer = 'container:TVShows.xcodeproj'
-            BuildableName = 'TVShows.app'>
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B717B61E2E5E6B73A2B28DA0"
+            BuildableName = "TVShows.app"
+            BlueprintName = "TVShows"
+            ReferencedContainer = "container:TVShows.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES"
-      buildConfiguration = "Release"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <BuildableProductRunnable>
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
-            BuildableIdentifier = 'primary'
-            BlueprintIdentifier = 'B717B61E2E5E6B73A2B28DA0'
-            BlueprintName = 'TVShows'
-            ReferencedContainer = 'container:TVShows.xcodeproj'
-            BuildableName = 'TVShows.app'>
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B717B61E2E5E6B73A2B28DA0"
+            BuildableName = "TVShows.app"
+            BlueprintName = "TVShows"
+            ReferencedContainer = "container:TVShows.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

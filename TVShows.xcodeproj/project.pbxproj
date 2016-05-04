@@ -10,12 +10,34 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>00AD112A4FAAAFA2D46FD112</key>
+		<dict>
+			<key>fileRef</key>
+			<string>201C161B3582CA9468425D7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>0523FB632509D1D734332338</key>
 		<dict>
 			<key>fileRef</key>
 			<string>6A6545AF2B2351D8EB537C59</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>060739D9F24FEC9BC2119EAD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-TVShows.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>099145D500032658824D7975</key>
 		<dict>
@@ -66,6 +88,26 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>1456ECCE16431F741CEE3BD3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BEB702FDF81C295CD01FA4A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>201C161B3582CA9468425D7E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_TVShowsUnitTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>208E4FB11BFD51C1F6E604A5</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -96,6 +138,8 @@
 		</dict>
 		<key>26AF890886F228BF6CF0C800</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>30B424C2508EF02F5E83D353</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -130,7 +174,9 @@
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
-			<array/>
+			<array>
+				<string>00AD112A4FAAAFA2D46FD112</string>
+			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
@@ -144,6 +190,7 @@
 				<string>121302881DBA35136554FC7E</string>
 				<string>4AB9C312C2A5DBEC088D886B</string>
 				<string>DCF3C0DD9D3B19E47554C315</string>
+				<string>D65C54FADF51225DCCEFC3CD</string>
 			</array>
 			<key>indentWidth</key>
 			<string>4</string>
@@ -302,6 +349,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>30B424C2508EF02F5E83D353</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-TVShows.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-TVShows/Pods-TVShows.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>313869A3327CC05DE77E20FE</key>
 		<dict>
 			<key>children</key>
@@ -377,10 +439,41 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<key>files</key>
 			<array>
 				<string>82204B45331703E19B67883B</string>
+				<string>1456ECCE16431F741CEE3BD3</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3DDCBC5AB1B2B98205417809</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
 		<key>420197A50388152E0D29CDE9</key>
@@ -409,6 +502,8 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 		</dict>
 		<key>484FDA8B604EB03E8E5D38A3</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>75EE35DE251066E591FBA46C</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
@@ -439,11 +534,37 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>4853FF3F7036CD7CFDC47DDE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-TVShowsUnitTests/Pods-TVShowsUnitTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
 		<key>4AB9C312C2A5DBEC088D886B</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>D81215DCD847B8FC92787100</string>
+				<string>BEB702FDF81C295CD01FA4A9</string>
+				<string>201C161B3582CA9468425D7E</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -552,6 +673,8 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 		</dict>
 		<key>73FE38D4FE2A63BF7665E9FA</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>060739D9F24FEC9BC2119EAD</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -578,6 +701,21 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
+		</dict>
+		<key>75EE35DE251066E591FBA46C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-TVShowsUnitTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-TVShowsUnitTests/Pods-TVShowsUnitTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>77E2E8EB790797232CAD3749</key>
 		<dict>
@@ -645,6 +783,21 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<string>8F3C3F3C3B52657E799DAB92</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>8981416C0141DF34C9445F46</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-TVShowsUnitTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-TVShowsUnitTests/Pods-TVShowsUnitTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>8F3C3F3C3B52657E799DAB92</key>
 		<dict>
@@ -862,6 +1015,8 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 		</dict>
 		<key>9FE53B4222F043A219276470</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>8981416C0141DF34C9445F46</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
@@ -904,6 +1059,30 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<string>WireframeInterface.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A03E9EB702828890926AA5C1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-TVShows/Pods-TVShows-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
 		</dict>
 		<key>A7F32720A5A8B000DA901963</key>
 		<dict>
@@ -991,10 +1170,13 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<string>3736190D523532F9384550DF</string>
 			<key>buildPhases</key>
 			<array>
+				<string>F01042739F75E9B75BA1316B</string>
 				<string>CA0A51B69471B8697E3A701E</string>
 				<string>3CB96702FBADEB7298E3D7D8</string>
 				<string>208E4FB11BFD51C1F6E604A5</string>
 				<string>35D081D66D7DF58FD504E5F6</string>
+				<string>B7F1E345EC1D7CF27FB9A2F2</string>
+				<string>A03E9EB702828890926AA5C1</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -1010,6 +1192,43 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<string>B1A2610C5B7F582B63847AE6</string>
 			<key>productType</key>
 			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>B7F1E345EC1D7CF27FB9A2F2</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-TVShows/Pods-TVShows-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>BEB702FDF81C295CD01FA4A9</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_TVShows.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>C1C0C19721AB1986B9445781</key>
 		<dict>
@@ -1046,15 +1265,42 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>C6CB68235B5AEFA9FB16DD7A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-TVShowsUnitTests/Pods-TVShowsUnitTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
 		<key>C70F94CC51DE3E93D323087E</key>
 		<dict>
 			<key>buildConfigurationList</key>
 			<string>820895F1B91337362201FD99</string>
 			<key>buildPhases</key>
 			<array>
+				<string>3DDCBC5AB1B2B98205417809</string>
 				<string>0C74EEBDDA0134F62396C5FC</string>
 				<string>29BD06E34423C2C1BE4E8338</string>
 				<string>420197A50388152E0D29CDE9</string>
+				<string>4853FF3F7036CD7CFDC47DDE</string>
+				<string>C6CB68235B5AEFA9FB16DD7A</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -1148,6 +1394,22 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<string>PBXFileReference</string>
 			<key>path</key>
 			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D65C54FADF51225DCCEFC3CD</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>30B424C2508EF02F5E83D353</string>
+				<string>060739D9F24FEC9BC2119EAD</string>
+				<string>8981416C0141DF34C9445F46</string>
+				<string>75EE35DE251066E591FBA46C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1263,6 +1525,36 @@ find -E "${SRCROOT}" -ipath "${SRCROOT}/Carthage" -o -ipath "${SRCROOT}/pods" -p
 			<string>D3AB38378771E7A64D410329</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>F01042739F75E9B75BA1316B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
 		</dict>
 		<key>F31546E6357F469B60C0E188</key>
 		<dict>
