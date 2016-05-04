@@ -19,9 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         TraktTVProvider.request(.PopularTVShows)
-            .bindNext { tvShows in
-                print("TVShows: \(tvShows)")
-            }.addDisposableTo(rx_disposeBag)
+            .mapArray(APITVShow.self)
+            .subscribe { event in
+                switch event {
+                case .Next(let tvShows):
+                    print("\n\nTV SHOWS: \(tvShows)")
+                case .Error(let error):
+                    print(error)
+                default: break
+                }
+            }
+            .addDisposableTo(rx_disposeBag)
 
         return true
     }

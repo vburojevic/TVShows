@@ -17,7 +17,7 @@ func JSONResponseDataFormatter(data: NSData) -> NSData {
         let prettyData =  try NSJSONSerialization.dataWithJSONObject(dataAsJSON, options: .PrettyPrinted)
         return prettyData
     } catch {
-        return data //fallback to original data if it cant be serialized
+        return data
     }
 }
 
@@ -75,14 +75,14 @@ extension TraktTVAPI: TargetType {
     var parameters: [String: AnyObject]? {
         switch self {
         case .PopularTVShows:
-            return ["popular": "extended=images"]
+            return ["extended": "images"]
         }
     }
 
     var sampleData: NSData {
         switch self {
         case .PopularTVShows:
-            return "Half measures are as bad as nothing at all.".dataUsingEncoding(NSUTF8StringEncoding)!
+            return "[]".dataUsingEncoding(NSUTF8StringEncoding)!
         }
     }
 }
