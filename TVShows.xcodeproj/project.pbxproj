@@ -20,6 +20,7 @@
 		D2346E0F094E007C6439C357 /* WireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001F35E5C3C7891F4511B26 /* WireframeInterface.swift */; };
 		E8EF701D7A739C14CB28BE4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AB38378771E7A64D410329 /* Main.storyboard */; };
 		F31546E6357F469B60C0E188 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC61DD282687D6B3EF05871 /* AppDelegate.swift */; };
+		FE342C891CDA986E00FE111E /* TraktTVAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE342C881CDA986E00FE111E /* TraktTVAPI.swift */; };
 		FE55D47A1CDA822E00B54C5A /* APITVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE55D4791CDA822E00B54C5A /* APITVShow.swift */; };
 		FE55D47C1CDA829B00B54C5A /* APITVShowIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE55D47B1CDA829B00B54C5A /* APITVShowIdentifier.swift */; };
 		FE55D47E1CDA82B700B54C5A /* APIImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE55D47D1CDA82B700B54C5A /* APIImages.swift */; };
@@ -58,6 +59,7 @@
 		BEB702FDF81C295CD01FA4A9 /* Pods_TVShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51FB17DBA0B32C1439B62D8 /* ViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		D3AB38378771E7A64D410329 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FE342C881CDA986E00FE111E /* TraktTVAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktTVAPI.swift; sourceTree = "<group>"; };
 		FE55D4791CDA822E00B54C5A /* APITVShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITVShow.swift; sourceTree = "<group>"; };
 		FE55D47B1CDA829B00B54C5A /* APITVShowIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITVShowIdentifier.swift; sourceTree = "<group>"; };
 		FE55D47D1CDA82B700B54C5A /* APIImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIImages.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		D32D7413CA6D812581F1B2CC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FE342C881CDA986E00FE111E /* TraktTVAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -388,7 +391,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = 1337code;
 			};
 			buildConfigurationList = AEDF6A00B354F8FDC6094B05 /* Build configuration list for PBXProject "TVShows" */;
@@ -549,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31546E6357F469B60C0E188 /* AppDelegate.swift in Sources */,
+				FE342C891CDA986E00FE111E /* TraktTVAPI.swift in Sources */,
 				0D4DF86AED212145DAEB1956 /* Constants.swift in Sources */,
 				FE55D47E1CDA82B700B54C5A /* APIImages.swift in Sources */,
 				C1C0C19721AB1986B9445781 /* Progressable.swift in Sources */,
@@ -586,6 +590,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.1337code.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 			};
@@ -615,6 +620,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -659,6 +665,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "TVShowsUnitTests/Resources/TVShowsUnitTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.1337code.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -678,6 +685,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.1337code.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 			};
@@ -745,6 +753,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "TVShowsUnitTests/Resources/TVShowsUnitTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.1337code.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

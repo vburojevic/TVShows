@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import NSObject_Rx
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        TraktTVProvider.request(.PopularTVShows)
+            .bindNext { tvShows in
+                print("TVShows: \(tvShows)")
+            }.addDisposableTo(rx_disposeBag)
+
         return true
     }
 
