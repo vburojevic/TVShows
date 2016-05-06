@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxCocoa
-import NSObject_Rx
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,18 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        TraktTVProvider.request(.PopularTVShows)
-            .mapArray(APITVShow.self)
-            .subscribe { event in
-                switch event {
-                case .Next(let tvShows):
-                    print("\n\nTV SHOWS: \(tvShows)")
-                case .Error(let error):
-                    print(error)
-                default: break
-                }
-            }
-            .addDisposableTo(rx_disposeBag)
+        let wireframe = PopularTVShowsWireframe()
+        let popularTVShowsViewController = wireframe.instantiateAndConfigureModule()
+        let navigationController = UINavigationController(rootViewController: popularTVShowsViewController)
+        window?.rootViewController = navigationController
 
         return true
     }

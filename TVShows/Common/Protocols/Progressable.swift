@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol Progressable {
     func showLoading()
@@ -14,11 +15,21 @@ protocol Progressable {
 }
 
 extension Progressable where Self: UIViewController {
-    
+
     func showLoading() {
+        if self.isKindOfClass(UITableViewController) {
+            MBProgressHUD.showHUDAddedTo(self.navigationController?.view ?? self.view, animated: true)
+        } else {
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        }
     }
-    
+
     func hideLoading() {
+        if self.isKindOfClass(UITableViewController) {
+            MBProgressHUD.hideHUDForView(self.navigationController?.view ?? self.view, animated: true)
+        } else {
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+        }
     }
-    
+
 }

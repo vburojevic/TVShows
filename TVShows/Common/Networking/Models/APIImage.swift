@@ -24,11 +24,9 @@ struct APIImage: Mappable {
     let thumb: String?
 
     init(_ json: JSON) throws {
-
         full   = json[.full]
         medium = json[.medium]
         thumb  = json[.thumb]
-
     }
 
 }

@@ -26,12 +26,10 @@ struct APITVShow: Mappable {
     let images: APIImages
 
     init(_ json: JSON) throws {
-
         title = json[.title]
         year  = json[.year]
         ids   = try! APITVShowIdentifier(json[.ids])
         images  = try! APIImages(json[.images])
-
     }
 
 }

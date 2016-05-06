@@ -30,14 +30,12 @@ struct APITVShowIdentifier: Mappable {
     let tvrage: Int?
 
     init(_ json: JSON) throws {
-
         trakt  = json[.trakt]
         slug   = json[.slug]
         tvdb   = json[.tvdb]
         imdb   = json[.imdb]
         tmdb   = json[.tmdb]
         tvrage = json[.tvrage]
-        
     }
 
 }
