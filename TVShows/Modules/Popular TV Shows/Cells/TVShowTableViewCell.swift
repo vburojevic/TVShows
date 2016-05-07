@@ -16,7 +16,6 @@ class TVShowTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         let vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurEffect)
@@ -26,12 +25,6 @@ class TVShowTableViewCell: UITableViewCell {
         self.aboutView.effect = blurEffect
         self.aboutView.alpha = 0.95
         self.aboutView.addSubview(vibrancyEffectView)
-    }
-
-    func adjust(offset: CGFloat) {
-        var frame = self.backgroundImageView.frame;
-        frame.origin.y = (offset / 10.0);
-        self.backgroundImageView.frame = frame;
     }
     
 }

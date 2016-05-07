@@ -51,22 +51,14 @@ extension PopularTVShowsPresenter: PopularTVShowsViewDelegateInterface {
         loading.value = true
 
         _interactor
-            .loadPopularTVShows()
-            .subscribeNext { result in
-                switch result {
-                case let .Success(tvShowsArray):
-                    self.tvShows.value = tvShowsArray
-                case let .Failure(networkingError):
-                    switch networkingError {
-                    case let .General(error):
-                        self.errorSubject.onNext(error.localizedDescription)
-                    case let .JSONDecoding(error):
-                        self.errorSubject.onNext(error.localizedDescription)
-                    }
-                }
+        .loadPopularTVShows()
+        .subscribe(onSuccess: { tvShows in
+            self.tvShows.value = tvShows
+            self.loading.value = false
+            }, onFailure: { error in
+                print(error)
                 self.loading.value = false
-            }
-            .addDisposableTo(rx_disposeBag)
+        })
     }
 
     func didSelectNavigationAction(action: PopularTVShowsNavigationAction) {

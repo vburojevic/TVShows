@@ -34,20 +34,34 @@ extension ObservableType where E: ResultType {
 
     func subscribeSuccess(onSuccess: (E.Value) -> Void)
         -> Disposable {
-            return self.subscribeNext({ _ in
-                self.doOnSuccess({ (value) in
-                    onSuccess(value)
-                })
-            })
+            return self.subscribeNext { value in
+                guard let successValue = value.value else {
+                    return
+                }
+                onSuccess(successValue)
+            }
     }
 
     func subscribeFailure(onFailure: (E.Error) -> Void)
         -> Disposable {
-            return self.subscribeNext({ _ in
-                self.doOnFailure({ (value) in
-                    onFailure(value)
-                })
-            })
+            return self.subscribeNext { value in
+                guard let failureValue = value.error else {
+                    return
+                }
+                onFailure(failureValue)
+            }
+    }
+
+    func subscribe(onSuccess onSuccess: (E.Value -> Void)? = nil, onFailure: (E.Error -> Void)? = nil,  onError: (ErrorType -> Void)? = nil, onCompleted: (() -> Void)? = nil, onDisposed: (() -> Void)? = nil)
+        -> Disposable {
+
+            return subscribe(onNext: { (value) in
+                if let successValue = value.value {
+                    onSuccess?(successValue)
+                } else if let failureValue = value.error {
+                    onFailure?(failureValue)
+                }
+                }, onError: onError, onCompleted: onCompleted, onDisposed: onDisposed)
     }
 
 }
