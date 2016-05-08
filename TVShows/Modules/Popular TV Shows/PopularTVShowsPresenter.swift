@@ -53,7 +53,7 @@ extension PopularTVShowsPresenter: PopularTVShowsViewDelegateInterface {
         _loading.value = true
 
         _interactor
-        .loadPopularTVShows()
+        .loadPopularTVShows(extended: "images")
         .subscribe(onSuccess: { [weak self] tvShows in
             self?._tvShows.value = tvShows
             self?._loading.value = false

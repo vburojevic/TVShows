@@ -41,5 +41,5 @@ protocol PopularTVShowsViewDelegateInterface: PresenterInterface {
 
 // MARK: - PopularTVShows Interactor Interface -
 protocol PopularTVShowsInteractorInterface: InteractorInterface {
-    func loadPopularTVShows() -> Observable<Result<[APITVShow], NetworkingError>>
+    func loadPopularTVShows(extended extended: String?) -> Observable<Result<[APITVShow], NetworkingError>>
 }

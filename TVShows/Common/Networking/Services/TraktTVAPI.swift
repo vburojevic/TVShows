@@ -40,7 +40,7 @@ private extension String {
 }
 
 enum TraktTVAPI {
-    case PopularTVShows
+    case PopularTVShows(extended: String?)
 }
 
 extension TraktTVAPI: TargetType {
@@ -74,8 +74,12 @@ extension TraktTVAPI: TargetType {
 
     var parameters: [String: AnyObject]? {
         switch self {
-        case .PopularTVShows:
-            return ["extended": "images"]
+        case .PopularTVShows(let extended):
+            guard let extended = extended else {
+                return nil
+            }
+
+            return ["extended": extended]
         }
     }
 

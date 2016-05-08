@@ -16,8 +16,8 @@ final class PopularTVShowsInteractor: NSObject, PopularTVShowsInteractorInterfac
     
     // MARK: - Internal functions -
 
-    func loadPopularTVShows() -> Observable<Result<[APITVShow], NetworkingError>> {
-        return TraktTVProvider.request(.PopularTVShows)
+    func loadPopularTVShows(extended extended: String?) -> Observable<Result<[APITVShow], NetworkingError>> {
+        return TraktTVProvider.request(.PopularTVShows(extended: extended))
             .retry(3)
             .mapArray(APITVShow.self)
             .map { tvShows -> Result<[APITVShow], NetworkingError> in
