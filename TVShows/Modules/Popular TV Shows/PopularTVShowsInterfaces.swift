@@ -31,7 +31,7 @@ protocol PopularTVShowsViewInterface: ViewInterface {
 protocol PopularTVShowsViewDelegateInterface: PresenterInterface {
     var loadingObservable: Observable<Bool> { get }
     var contentChangesObservable: Observable<[APITVShow]> { get }
-    var errorObservable: Observable<String> { get }
+    var errorObservable: Observable<(title: String, message: String)> { get }
 
     func didSelectNavigationAction(action: PopularTVShowsNavigationAction)
 

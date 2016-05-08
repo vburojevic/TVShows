@@ -74,7 +74,7 @@ final class PopularTVShowsViewController: UIViewController, Progressable {
         presenter
             .errorObservable
             .subscribeNext { error in
-                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
+                let alertController = UIAlertController(title: error.title, message: error.message, preferredStyle: .Alert)
 
                 let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
                 alertController.addAction(cancelAction)

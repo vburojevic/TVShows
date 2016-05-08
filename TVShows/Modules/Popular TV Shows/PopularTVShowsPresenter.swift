@@ -18,25 +18,27 @@ final class PopularTVShowsPresenter: NSObject {
 
     let loadingObservable: Observable<Bool>
     let contentChangesObservable: Observable<[APITVShow]>
-    let errorObservable: Observable<String>
+    let errorObservable: Observable<(title: String, message: String)>
     
     // MARK: - Private properties -
 
     private unowned var _view: PopularTVShowsViewInterface
     private var _interactor: PopularTVShowsInteractor
     private var _wireframe: PopularTVShowsWireframeInterface
-    private let loading = Variable(false)
-    private let tvShows = Variable([APITVShow]())
-    private let errorSubject = PublishSubject<String>()
+
+    private let _loading = Variable(false)
+    private let _tvShows = Variable([APITVShow]())
+    private let _errorSubject = PublishSubject<(title: String, message: String)>()
     
     // MARK: - Lifecycle -
+
     init (wireframe: PopularTVShowsWireframeInterface, view: PopularTVShowsViewInterface, interactor: PopularTVShowsInteractor) {
         _wireframe = wireframe
         _view = view
         _interactor = interactor
-        contentChangesObservable = tvShows.asObservable()
-        errorObservable = errorSubject.asObservable()
-        loadingObservable = loading.asObservable()
+        contentChangesObservable = _tvShows.asObservable()
+        errorObservable = _errorSubject.asObservable()
+        loadingObservable = _loading.asObservable()
     }
     
 }
@@ -48,16 +50,16 @@ extension PopularTVShowsPresenter: PopularTVShowsViewDelegateInterface {
     }
 
     func viewDidLoad() {
-        loading.value = true
+        _loading.value = true
 
         _interactor
         .loadPopularTVShows()
-        .subscribe(onSuccess: { tvShows in
-            self.tvShows.value = tvShows
-            self.loading.value = false
-            }, onFailure: { error in
-                print(error)
-                self.loading.value = false
+        .subscribe(onSuccess: { [weak self] tvShows in
+            self?._tvShows.value = tvShows
+            self?._loading.value = false
+        }, onFailure: { [weak self] error in
+            self?._loading.value = false
+            self?._errorSubject.onNext((title: error.title, message: error.message))
         })
     }
 
