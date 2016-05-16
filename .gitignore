@@ -24,10 +24,6 @@ build/
 *.dat
 *.dep
 
-# Cocoapods
-Pods
-Carthage
-
 # AppCode specific files
 .idea/
 *.iml

@@ -13,7 +13,6 @@ def shared_pods
     pod 'Moya-JASON'
     pod 'Moya-JASON/RxSwift'
     pod 'NSObject+Rx'
-    pod 'Result'
     pod 'CoreStore'
 
 end
