@@ -17,23 +17,26 @@ struct PopularTVShowsContext {
 final class PopularTVShowsWireframe: NSObject {
     
     // MARK: - Private properties -
+
     private var _context: PopularTVShowsContext?
     private let _storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     // MARK: - Public properties -
+
     weak var navigationController: UINavigationController?
     weak var viewController: UIViewController?
     
     // MARK: - Init -
-    private override init() {}
 
     init(context: PopularTVShowsContext? = nil, navigationController: UINavigationController? = nil) {
         super.init()
+
         self._context = context
         self.navigationController = navigationController
     }
     
     // MARK: - Module setup -
+
     func instantiateAndConfigureModule() -> UIViewController {
         let moduleViewController = _storyboard.instantiateViewControllerWithIdentifier("PopularTVShowsViewController") as! PopularTVShowsViewController
         configureModuleWith(moduleViewController)
@@ -49,8 +52,8 @@ final class PopularTVShowsWireframe: NSObject {
 }
 
 // MARK: - PopularTVShows Wireframe Interface Requirements -
+
 extension PopularTVShowsWireframe: PopularTVShowsWireframeInterface {
-    
     func performNavigationAction(action: PopularTVShowsNavigationAction) {
         switch action {
         // #warning Implement actions 

@@ -11,7 +11,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Kingfisher
 import NSObject_Rx
 
 // MARK: -  PopularTVShows View Controller -
@@ -21,7 +20,8 @@ final class PopularTVShowsViewController: UIViewController, Progressable {
 
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - PopularTVShows view interface requirements
+    // MARK: - Public properties-
+
     var presenter: PopularTVShowsViewDelegateInterface!
     
     // MARK: - View lifecycle -
@@ -59,15 +59,11 @@ final class PopularTVShowsViewController: UIViewController, Progressable {
 
         presenter
             .contentChangesObservable
-            .bindTo(tableView.rx_itemsWithCellFactory) {
-                (tableView: UITableView, index, item: APITVShow) in
-                let indexPath = NSIndexPath(forItem: index, inSection: 0)
-                let cell = tableView.dequeueReusableCellWithIdentifier("TVShowTableViewCell", forIndexPath: indexPath) as! TVShowTableViewCell
-                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-                cell.aboutView.effect = blurEffect
-                cell.backgroundImageView.kf_setImageWithURL(NSURL(string: item.images.fanArt.full)!, placeholderImage: nil, optionsInfo: [.Transition(ImageTransition.Fade(1))], progressBlock: nil, completionHandler: nil)
-                cell.titleLabel.text = item.title
-                return cell
+            .bindTo(tableView.rx_itemsWithCellIdentifier("TVShowTableViewCell")) { (row, item, cell) in
+                guard let cell = cell as? TVShowTableViewCell else {
+                    fatalError("Cell is not TVShowTableViewCell")
+                }
+                cell.configure(tvShowCellItem: item)
             }
             .addDisposableTo(rx_disposeBag)
 

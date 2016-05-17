@@ -10,16 +10,13 @@ import JASON
 import Moya_JASON
 
 private extension JSONKeys {
-
     static let title  = JSONKey<String>("title")
     static let year   = JSONKey<Int>("year")
     static let ids    = JSONKey<JSON>("ids")
     static let images = JSONKey<JSON>("images")
-    
 }
 
 struct APITVShow: Mappable {
-
     let title: String
     let year: Int
     let ids: APITVShowIdentifier
@@ -31,5 +28,4 @@ struct APITVShow: Mappable {
         ids   = try! APITVShowIdentifier(json[.ids])
         images  = try! APIImages(json[.images])
     }
-
 }

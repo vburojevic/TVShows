@@ -10,14 +10,12 @@ import JASON
 import Moya_JASON
 
 private extension JSONKeys {
-    
     static let fanArt   = JSONKey<JSON>("fanart")
     static let poster   = JSONKey<JSON>("poster")
     static let logo     = JSONKey<JSON>("logo")
     static let clearArt = JSONKey<JSON>("clearart")
     static let banner   = JSONKey<JSON>("banner")
     static let thumb    = JSONKey<JSON>("thumb")
-
 }
 
 struct APIImages: Mappable {

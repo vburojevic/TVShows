@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-
         let wireframe = PopularTVShowsWireframe()
         let popularTVShowsViewController = wireframe.instantiateAndConfigureModule()
         let navigationController = UINavigationController(rootViewController: popularTVShowsViewController)

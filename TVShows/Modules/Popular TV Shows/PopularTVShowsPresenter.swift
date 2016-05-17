@@ -17,7 +17,7 @@ final class PopularTVShowsPresenter: NSObject {
     // MARK: - Public properties -
 
     let loadingObservable: Observable<Bool>
-    let contentChangesObservable: Observable<[APITVShow]>
+    let contentChangesObservable: Observable<[TVShowCellItem]>
     let errorObservable: Observable<(title: String, message: String)>
     
     // MARK: - Private properties -
@@ -28,6 +28,7 @@ final class PopularTVShowsPresenter: NSObject {
 
     private let _loading = Variable(false)
     private let _tvShows = Variable([APITVShow]())
+    private let _tvShowCelItems = Variable([TVShowCellItem]())
     private let _errorSubject = PublishSubject<(title: String, message: String)>()
     
     // MARK: - Lifecycle -
@@ -36,7 +37,7 @@ final class PopularTVShowsPresenter: NSObject {
         _wireframe = wireframe
         _view = view
         _interactor = interactor
-        contentChangesObservable = _tvShows.asObservable()
+        contentChangesObservable = _tvShowCelItems.asObservable()
         errorObservable = _errorSubject.asObservable()
         loadingObservable = _loading.asObservable()
     }
@@ -44,7 +45,6 @@ final class PopularTVShowsPresenter: NSObject {
 }
 
 extension PopularTVShowsPresenter: PopularTVShowsViewDelegateInterface {
-
     func titleText() -> String {
         return "Popular TV Shows"
     }
@@ -56,6 +56,7 @@ extension PopularTVShowsPresenter: PopularTVShowsViewDelegateInterface {
         .loadPopularTVShows(extended: "images")
         .subscribe(onSuccess: { [weak self] tvShows in
             self?._tvShows.value = tvShows
+            self?._tvShowCelItems.value = tvShows.map{TVShowCellItem(tvShow: $0)}
             self?._loading.value = false
         }, onFailure: { [weak self] error in
             self?._loading.value = false

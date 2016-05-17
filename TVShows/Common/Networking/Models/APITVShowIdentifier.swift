@@ -10,18 +10,15 @@ import JASON
 import Moya_JASON
 
 private extension JSONKeys {
-
     static let trakt  = JSONKey<Int>("trakt")
     static let slug   = JSONKey<String>("slug")
     static let tvdb   = JSONKey<Int?>("tvdb")
     static let imdb   = JSONKey<String?>("imdb")
     static let tmdb   = JSONKey<Int?>("tmdb")
     static let tvrage = JSONKey<Int?>("tvrage")
-
 }
 
 struct APITVShowIdentifier: Mappable {
-
     let trakt: Int
     let slug: String
     let tvdb: Int?
@@ -37,5 +34,4 @@ struct APITVShowIdentifier: Mappable {
         tmdb   = json[.tmdb]
         tvrage = json[.tvrage]
     }
-
 }

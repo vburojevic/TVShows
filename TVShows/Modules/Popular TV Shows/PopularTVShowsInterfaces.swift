@@ -14,23 +14,27 @@ import RxSwift
 import Result
 
 // MARK: - Navigation -
+
 enum  PopularTVShowsNavigationAction {
 }
 
 // MARK: - PopularTVShows Wireframe Interface -
+
 protocol PopularTVShowsWireframeInterface: WireframeInterface {
     func performNavigationAction(action: PopularTVShowsNavigationAction)
     func configureModuleWith(viewController: PopularTVShowsViewController)
 }
 
 // MARK: - PopularTVShows View Interface -
+
 protocol PopularTVShowsViewInterface: ViewInterface {
 }
 
 // MARK: - PopularTVShows View Presenter (Delegate) Interface -
+
 protocol PopularTVShowsViewDelegateInterface: PresenterInterface {
     var loadingObservable: Observable<Bool> { get }
-    var contentChangesObservable: Observable<[APITVShow]> { get }
+    var contentChangesObservable: Observable<[TVShowCellItem]> { get }
     var errorObservable: Observable<(title: String, message: String)> { get }
 
     func didSelectNavigationAction(action: PopularTVShowsNavigationAction)
@@ -40,6 +44,7 @@ protocol PopularTVShowsViewDelegateInterface: PresenterInterface {
 }
 
 // MARK: - PopularTVShows Interactor Interface -
+
 protocol PopularTVShowsInteractorInterface: InteractorInterface {
     func loadPopularTVShows(extended extended: String?) -> Observable<Result<[APITVShow], NetworkingError>>
 }

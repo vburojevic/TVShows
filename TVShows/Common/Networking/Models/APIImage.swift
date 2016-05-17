@@ -10,15 +10,12 @@ import JASON
 import Moya_JASON
 
 private extension JSONKeys {
-
     static let full   = JSONKey<String>("full")
     static let medium = JSONKey<String?>("medium")
     static let thumb  = JSONKey<String?>("thumb")
-
 }
 
 struct APIImage: Mappable {
-
     let full: String
     let medium: String?
     let thumb: String?
@@ -28,5 +25,4 @@ struct APIImage: Mappable {
         medium = json[.medium]
         thumb  = json[.thumb]
     }
-
 }

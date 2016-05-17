@@ -21,8 +21,11 @@
 		F31546E6357F469B60C0E188 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC61DD282687D6B3EF05871 /* AppDelegate.swift */; };
 		FE0044771CDCF25D0091F322 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0044761CDCF25D0091F322 /* NetworkingError.swift */; };
 		FE0044791CDCFA940091F322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0044781CDCFA940091F322 /* Main.storyboard */; };
-		FE00447D1CDCFDD00091F322 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00447B1CDCFDD00091F322 /* TVShowTableViewCell.swift */; };
-		FE00447E1CDCFDD00091F322 /* TVShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE00447C1CDCFDD00091F322 /* TVShowTableViewCell.xib */; };
+		FE2DBF681CEB92030003DE82 /* TVShowDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DBF671CEB92030003DE82 /* TVShowDisplayable.swift */; };
+		FE2DBF6B1CEB92600003DE82 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DBF691CEB92600003DE82 /* TVShowTableViewCell.swift */; };
+		FE2DBF6C1CEB92600003DE82 /* TVShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2DBF6A1CEB92600003DE82 /* TVShowTableViewCell.xib */; };
+		FE2DBF6F1CEB92920003DE82 /* TVShowCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DBF6E1CEB92920003DE82 /* TVShowCellItem.swift */; };
+		FE2DBF731CEB953B0003DE82 /* TVShowConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2DBF721CEB953B0003DE82 /* TVShowConfigurable.swift */; };
 		FE342C891CDA986E00FE111E /* TraktTVAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE342C881CDA986E00FE111E /* TraktTVAPI.swift */; };
 		FE342C8C1CDAB16B00FE111E /* ObservableType+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE342C8B1CDAB16B00FE111E /* ObservableType+Result.swift */; };
 		FE55D47A1CDA822E00B54C5A /* APITVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE55D4791CDA822E00B54C5A /* APITVShow.swift */; };
@@ -69,8 +72,11 @@
 		C51FB17DBA0B32C1439B62D8 /* ViewInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		FE0044761CDCF25D0091F322 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		FE0044781CDCFA940091F322 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		FE00447B1CDCFDD00091F322 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
-		FE00447C1CDCFDD00091F322 /* TVShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVShowTableViewCell.xib; sourceTree = "<group>"; };
+		FE2DBF671CEB92030003DE82 /* TVShowDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowDisplayable.swift; sourceTree = "<group>"; };
+		FE2DBF691CEB92600003DE82 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
+		FE2DBF6A1CEB92600003DE82 /* TVShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVShowTableViewCell.xib; sourceTree = "<group>"; };
+		FE2DBF6E1CEB92920003DE82 /* TVShowCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowCellItem.swift; sourceTree = "<group>"; };
+		FE2DBF721CEB953B0003DE82 /* TVShowConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowConfigurable.swift; sourceTree = "<group>"; };
 		FE342C881CDA986E00FE111E /* TraktTVAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktTVAPI.swift; sourceTree = "<group>"; };
 		FE342C8B1CDAB16B00FE111E /* ObservableType+Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Result.swift"; sourceTree = "<group>"; };
 		FE55D4791CDA822E00B54C5A /* APITVShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITVShow.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 		2B2AED0CA74E9B37B2D6750D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FE2DBF6D1CEB927E0003DE82 /* Cell Items */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,6 +240,8 @@
 		9339DB89C93F3D90AB8F3E38 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				FE2DBF691CEB92600003DE82 /* TVShowTableViewCell.swift */,
+				FE2DBF6A1CEB92600003DE82 /* TVShowTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -339,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				6CC585D7E7B5826D7FE0E08E /* Progressable.swift */,
+				FE2DBF671CEB92030003DE82 /* TVShowDisplayable.swift */,
+				FE2DBF721CEB953B0003DE82 /* TVShowConfigurable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -351,13 +362,12 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		FE00447A1CDCFDB50091F322 /* Cells */ = {
+		FE2DBF6D1CEB927E0003DE82 /* Cell Items */ = {
 			isa = PBXGroup;
 			children = (
-				FE00447B1CDCFDD00091F322 /* TVShowTableViewCell.swift */,
-				FE00447C1CDCFDD00091F322 /* TVShowTableViewCell.xib */,
+				FE2DBF6E1CEB92920003DE82 /* TVShowCellItem.swift */,
 			);
-			path = Cells;
+			path = "Cell Items";
 			sourceTree = "<group>";
 		};
 		FE342C8A1CDAB15600FE111E /* RxSwift */ = {
@@ -379,7 +389,6 @@
 		FEFA6B6B1CDC033200642B90 /* Popular TV Shows */ = {
 			isa = PBXGroup;
 			children = (
-				FE00447A1CDCFDB50091F322 /* Cells */,
 				FEFA6B6C1CDC035000642B90 /* PopularTVShowsInteractor.swift */,
 				FEFA6B6D1CDC035000642B90 /* PopularTVShowsInterfaces.swift */,
 				FEFA6B6E1CDC035000642B90 /* PopularTVShowsPresenter.swift */,
@@ -470,7 +479,7 @@
 			files = (
 				1219E00A2D53555993E1763F /* Images.xcassets in Resources */,
 				B12FE79091B8898518D9A4B0 /* LaunchScreen.xib in Resources */,
-				FE00447E1CDCFDD00091F322 /* TVShowTableViewCell.xib in Resources */,
+				FE2DBF6C1CEB92600003DE82 /* TVShowTableViewCell.xib in Resources */,
 				FE0044791CDCFA940091F322 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,8 +614,8 @@
 			files = (
 				F31546E6357F469B60C0E188 /* AppDelegate.swift in Sources */,
 				FEFA6B731CDC035000642B90 /* PopularTVShowsPresenter.swift in Sources */,
-				FE00447D1CDCFDD00091F322 /* TVShowTableViewCell.swift in Sources */,
 				FEFA6B741CDC035000642B90 /* PopularTVShowsTableViewController.swift in Sources */,
+				FE2DBF6B1CEB92600003DE82 /* TVShowTableViewCell.swift in Sources */,
 				FE342C891CDA986E00FE111E /* TraktTVAPI.swift in Sources */,
 				FEFA6B721CDC035000642B90 /* PopularTVShowsInterfaces.swift in Sources */,
 				0D4DF86AED212145DAEB1956 /* Constants.swift in Sources */,
@@ -616,6 +625,7 @@
 				FE55D4801CDA82C400B54C5A /* APIImage.swift in Sources */,
 				FE55D47C1CDA829B00B54C5A /* APITVShowIdentifier.swift in Sources */,
 				FE342C8C1CDAB16B00FE111E /* ObservableType+Result.swift in Sources */,
+				FE2DBF681CEB92030003DE82 /* TVShowDisplayable.swift in Sources */,
 				ADD37B451A6F4219928BBD1F /* ViewInterface.swift in Sources */,
 				099145D500032658824D7975 /* PresenterInterface.swift in Sources */,
 				FEFA6B751CDC035000642B90 /* PopularTVShowsWireframe.swift in Sources */,
@@ -623,6 +633,8 @@
 				D2346E0F094E007C6439C357 /* WireframeInterface.swift in Sources */,
 				FE55D47A1CDA822E00B54C5A /* APITVShow.swift in Sources */,
 				FEFA6B711CDC035000642B90 /* PopularTVShowsInteractor.swift in Sources */,
+				FE2DBF6F1CEB92920003DE82 /* TVShowCellItem.swift in Sources */,
+				FE2DBF731CEB953B0003DE82 /* TVShowConfigurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
