@@ -19,7 +19,7 @@ final class PopularTVShowsWireframe: NSObject {
     // MARK: - Private properties -
 
     private var _context: PopularTVShowsContext?
-    private let _storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    private let _storyboard: UIStoryboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
     
     // MARK: - Public properties -
 
@@ -38,7 +38,7 @@ final class PopularTVShowsWireframe: NSObject {
     // MARK: - Module setup -
 
     func instantiateAndConfigureModule() -> UIViewController {
-        let moduleViewController = _storyboard.instantiateViewControllerWithIdentifier("PopularTVShowsViewController") as! PopularTVShowsViewController
+        let moduleViewController = _storyboard.instantiateViewControllerWithIdentifier(R.storyboard.main.popularTVShowsViewController.identifier) as! PopularTVShowsViewController
         configureModuleWith(moduleViewController)
         viewController = moduleViewController
         return moduleViewController

@@ -39,13 +39,15 @@ final class PopularTVShowsViewController: UIViewController, Progressable {
     func configureUI() {
         // Title
         self.title = presenter.titleText()
+        
 
         // Table view
-        tableView.registerNib(UINib(nibName: "TVShowTableViewCell", bundle: nil), forCellReuseIdentifier: "TVShowTableViewCell")
+        tableView.registerNib(UINib(nibName: R.nib.tVShowTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: R.reuseIdentifier.tVShowTableViewCell.identifier)
         tableView.tableFooterView = UIView()
     }
 
     func bindPresenter() {
+
         presenter
             .loadingObservable
             .subscribeNext { loading in
@@ -59,9 +61,9 @@ final class PopularTVShowsViewController: UIViewController, Progressable {
 
         presenter
             .contentChangesObservable
-            .bindTo(tableView.rx_itemsWithCellIdentifier("TVShowTableViewCell")) { (row, item, cell) in
+            .bindTo(tableView.rx_itemsWithCellIdentifier(R.reuseIdentifier.tVShowTableViewCell.identifier)) { (row, item, cell) in
                 guard let cell = cell as? TVShowTableViewCell else {
-                    fatalError("Cell is not TVShowTableViewCell")
+                    fatalError("Cell is not of type \(R.reuseIdentifier.tVShowTableViewCell.identifier)")
                 }
                 cell.configure(tvShowCellItem: item)
             }

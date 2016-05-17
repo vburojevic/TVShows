@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -59,8 +59,8 @@ code_sign_if_enabled() {
   if [ -n "${EXPANDED_CODE_SIGN_IDENTITY}" -a "${CODE_SIGNING_REQUIRED}" != "NO" -a "${CODE_SIGNING_ALLOWED}" != "NO" ]; then
     # Use the current code_sign_identitiy
     echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
-    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\""
-    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$1\""
+    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements "$1"
   fi
 }
 
@@ -84,38 +84,40 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-TVShows/Alamofire.framework"
-  install_framework "Pods-TVShows/CoreStore.framework"
-  install_framework "Pods-TVShows/GCDKit.framework"
-  install_framework "Pods-TVShows/JASON.framework"
-  install_framework "Pods-TVShows/Kingfisher.framework"
-  install_framework "Pods-TVShows/MBProgressHUD.framework"
-  install_framework "Pods-TVShows/Moya.framework"
-  install_framework "Pods-TVShows/Moya_JASON.framework"
-  install_framework "Pods-TVShows/NSObject_Rx.framework"
-  install_framework "Pods-TVShows/Result.framework"
-  install_framework "Pods-TVShows/RxBlocking.framework"
-  install_framework "Pods-TVShows/RxCocoa.framework"
-  install_framework "Pods-TVShows/RxDataSources.framework"
-  install_framework "Pods-TVShows/RxOptional.framework"
-  install_framework "Pods-TVShows/RxSwift.framework"
-  install_framework "Pods-TVShows/SnapKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/CoreStore/CoreStore.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GCDKit/GCDKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/JASON/JASON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Moya/Moya.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Moya-JASON/Moya_JASON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/NSObject+Rx/NSObject_Rx.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/R.swift.Library/Rswift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Result/Result.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxBlocking/RxBlocking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxCocoa/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxDataSources/RxDataSources.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxOptional/RxOptional.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxSwift/RxSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-TVShows/Alamofire.framework"
-  install_framework "Pods-TVShows/CoreStore.framework"
-  install_framework "Pods-TVShows/GCDKit.framework"
-  install_framework "Pods-TVShows/JASON.framework"
-  install_framework "Pods-TVShows/Kingfisher.framework"
-  install_framework "Pods-TVShows/MBProgressHUD.framework"
-  install_framework "Pods-TVShows/Moya.framework"
-  install_framework "Pods-TVShows/Moya_JASON.framework"
-  install_framework "Pods-TVShows/NSObject_Rx.framework"
-  install_framework "Pods-TVShows/Result.framework"
-  install_framework "Pods-TVShows/RxBlocking.framework"
-  install_framework "Pods-TVShows/RxCocoa.framework"
-  install_framework "Pods-TVShows/RxDataSources.framework"
-  install_framework "Pods-TVShows/RxOptional.framework"
-  install_framework "Pods-TVShows/RxSwift.framework"
-  install_framework "Pods-TVShows/SnapKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/CoreStore/CoreStore.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GCDKit/GCDKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/JASON/JASON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Moya/Moya.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Moya-JASON/Moya_JASON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/NSObject+Rx/NSObject_Rx.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/R.swift.Library/Rswift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Result/Result.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxBlocking/RxBlocking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxCocoa/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxDataSources/RxDataSources.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxOptional/RxOptional.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxSwift/RxSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
 fi
