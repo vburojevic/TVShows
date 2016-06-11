@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-// MARK: - Provider setup
+// MARK: - Provider setup -
 
 func JSONResponseDataFormatter(data: NSData) -> NSData {
     do {
