@@ -6,26 +6,29 @@
 //  Copyright © 2016 1337code. All rights reserved.
 //
 
-import JASON
-import Moya_JASON
+import Gloss
+import Moya_Gloss
 
-private extension JSONKeys {
-    static let title  = JSONKey<String>("title")
-    static let year   = JSONKey<Int>("year")
-    static let ids    = JSONKey<JSON>("ids")
-    static let images = JSONKey<JSON>("images")
+struct APITVShow {
+
+    let title: String
+    let year: Int?
+    let ids: APITVShowIdentifier?
+    let images: APIImages?
+    
 }
 
-struct APITVShow: Mappable {
-    let title: String
-    let year: Int
-    let ids: APITVShowIdentifier
-    let images: APIImages
+extension APITVShow: Decodable {
 
-    init(_ json: JSON) throws {
-        title = json[.title]
-        year  = json[.year]
-        ids   = try! APITVShowIdentifier(json[.ids])
-        images  = try! APIImages(json[.images])
+    init?(json: JSON) {
+        guard let title: String = "title" <~~ json else {
+            return nil
+        }
+
+        self.title = title
+        self.ids = "ids" <~~ json
+        self.year = "year" <~~ json
+        self.images = "images" <~~ json
     }
+
 }

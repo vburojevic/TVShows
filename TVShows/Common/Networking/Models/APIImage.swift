@@ -6,23 +6,23 @@
 //  Copyright © 2016 1337code. All rights reserved.
 //
 
-import JASON
-import Moya_JASON
+import Gloss
+import Moya_Gloss
 
-private extension JSONKeys {
-    static let full   = JSONKey<String>("full")
-    static let medium = JSONKey<String?>("medium")
-    static let thumb  = JSONKey<String?>("thumb")
-}
+struct APIImage {
 
-struct APIImage: Mappable {
-    let full: String
+    let full: String?
     let medium: String?
     let thumb: String?
 
-    init(_ json: JSON) throws {
-        full   = json[.full]
-        medium = json[.medium]
-        thumb  = json[.thumb]
+}
+
+extension APIImage: Decodable {
+
+    init(json: JSON) {
+        self.full = "full" <~~ json
+        self.medium = "medium" <~~ json
+        self.thumb = "thumb" <~~ json
     }
+
 }

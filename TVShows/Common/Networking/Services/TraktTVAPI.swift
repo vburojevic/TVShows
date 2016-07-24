@@ -89,6 +89,10 @@ extension TraktTVAPI: TargetType {
             return "[]".dataUsingEncoding(NSUTF8StringEncoding)!
         }
     }
+
+    var multipartBody: [MultipartFormData]? {
+        return nil
+    }
 }
 
 func url(route: TargetType) -> String {

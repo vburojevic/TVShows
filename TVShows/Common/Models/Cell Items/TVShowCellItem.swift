@@ -19,6 +19,10 @@ struct TVShowCellItem: TVShowDisplayable {
 
     init(tvShow: APITVShow) {
         title = tvShow.title
-        imageURL = NSURL(string: tvShow.images.fanArt.full)
+        if let fullImagePath = tvShow.images?.fanArt?.full {
+            imageURL = NSURL(string: fullImagePath)
+        } else {
+            imageURL = nil
+        }
     }
 }

@@ -6,32 +6,29 @@
 //  Copyright © 2016 1337code. All rights reserved.
 //
 
-import JASON
-import Moya_JASON
+import Gloss
+import Moya_Gloss
 
-private extension JSONKeys {
-    static let trakt  = JSONKey<Int>("trakt")
-    static let slug   = JSONKey<String>("slug")
-    static let tvdb   = JSONKey<Int?>("tvdb")
-    static let imdb   = JSONKey<String?>("imdb")
-    static let tmdb   = JSONKey<Int?>("tmdb")
-    static let tvrage = JSONKey<Int?>("tvrage")
+struct APITVShowIdentifier {
+
+    let trakt: String?
+    let slug: String?
+    let tvdb: String?
+    let imdb: String?
+    let tmdb: String?
+    let tvrage: String?
+
 }
 
-struct APITVShowIdentifier: Mappable {
-    let trakt: Int
-    let slug: String
-    let tvdb: Int?
-    let imdb: String?
-    let tmdb: Int?
-    let tvrage: Int?
+extension APITVShowIdentifier: Decodable {
 
-    init(_ json: JSON) throws {
-        trakt  = json[.trakt]
-        slug   = json[.slug]
-        tvdb   = json[.tvdb]
-        imdb   = json[.imdb]
-        tmdb   = json[.tmdb]
-        tvrage = json[.tvrage]
+    init(json: JSON) {
+        self.trakt = "trakt" <~~ json
+        self.slug = "slug" <~~ json
+        self.tvdb = "tvdb" <~~ json
+        self.imdb = "imdb" <~~ json
+        self.tmdb = "tmdb" <~~ json
+        self.tvrage = "tvrage" <~~ json
     }
+    
 }
